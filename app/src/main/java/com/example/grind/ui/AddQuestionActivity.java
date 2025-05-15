@@ -1,12 +1,14 @@
-package com.example.grind;
+package com.example.grind.ui;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RoomManagementActivity extends AppCompatActivity {
+import com.example.grind.R;
+
+public class AddQuestionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.room_managment_activity);
+        setContentView(R.layout.add_question_activity);
     }
 }

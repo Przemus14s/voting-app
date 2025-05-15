@@ -1,10 +1,13 @@
-package com.example.grind;
+package com.example.grind.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.grind.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
         btnModerator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ModeratorLoginActivity.class);
+//                Bez logowania
+//                Intent intent = new Intent(MainActivity.this, ModeratorLoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, CreateRoomActivity.class);
                 startActivity(intent);
             }
         });

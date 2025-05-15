@@ -5,16 +5,16 @@
     <application
         android:allowBackup="true"
         android:label="VoteRoom"
-        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
-        <activity android:name=".ResultsActivity" />
-        <activity android:name=".RoomManagementActivity" />
-        <activity android:name=".AddQuestionActivity" />
-        <activity android:name=".CreateRoomActivity" />
-        <activity android:name=".JoinRoomActivity" />
-        <activity android:name=".ModeratorLoginActivity" />
+        <activity android:name=".ui.ResultsActivity" />
+        <activity android:name=".ui.RoomManagementActivity" />
+        <activity android:name=".ui.AddQuestionActivity" />
+        <activity android:name=".ui.CreateRoomActivity" />
+        <activity android:name=".ui.JoinRoomActivity" />
+        <activity android:name=".ui.ModeratorLoginActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

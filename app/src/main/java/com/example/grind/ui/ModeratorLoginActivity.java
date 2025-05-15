@@ -1,12 +1,14 @@
-package com.example.grind;
+package com.example.grind.ui;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateRoomActivity extends AppCompatActivity {
+import com.example.grind.R;
+
+public class ModeratorLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_room_activity);
+        setContentView(R.layout.moderator_login_activity);
     }
 }

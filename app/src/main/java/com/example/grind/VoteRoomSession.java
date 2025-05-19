@@ -2,6 +2,7 @@ package com.example.grind;
 
 import com.example.grind.model.Voting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VoteRoomSession {
@@ -12,6 +13,8 @@ public class VoteRoomSession {
     private List<Voting> votings;
 
     private VoteRoomSession() {
+        users = new ArrayList<>();
+        votings = new ArrayList<>();
     }
 
     public static VoteRoomSession getInstance() {

@@ -12,9 +12,11 @@ public class VoteRoomSession {
     private String roomTitle;
     private final List<VotingQuestion> votingQuestions = new ArrayList<>();
 
+    // ✅ Dodane pole do przechowywania użytkowników
+    private final List<String> users;
+
     private VoteRoomSession() {
         users = new ArrayList<>();
-        votings = new ArrayList<>();
     }
 
     public static VoteRoomSession getInstance() {
@@ -25,6 +27,7 @@ public class VoteRoomSession {
         this.roomCode = code;
         this.roomTitle = title;
         votingQuestions.clear(); // Wyczyszczenie pytań przy tworzeniu nowego pokoju
+        users.clear(); // Wyczyszczenie użytkowników przy tworzeniu nowego pokoju
     }
 
     public int getRoomCode() {
@@ -41,5 +44,20 @@ public class VoteRoomSession {
 
     public List<VotingQuestion> getQuestions() {
         return votingQuestions;
+    }
+
+    // ✅ Nowe metody do zarządzania użytkownikami
+    public void addUser(String username) {
+        if (username != null && !username.trim().isEmpty()) {
+            users.add(username.trim());
+        }
+    }
+
+    public List<String> getUsers() {
+        return users;
+    }
+
+    public void clearUsers() {
+        users.clear();
     }
 }

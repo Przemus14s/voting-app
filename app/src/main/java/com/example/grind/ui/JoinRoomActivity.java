@@ -17,6 +17,7 @@ public class JoinRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join_room_activity);
 
+        // Pobierz instancję sesji
         VoteRoomSession session = VoteRoomSession.getInstance();
 
         EditText etRoomCode = findViewById(R.id.etRoomCode);
@@ -26,9 +27,14 @@ public class JoinRoomActivity extends AppCompatActivity {
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!etRoomCode.getText().toString().isEmpty() && !etUsername.getText().toString().isEmpty()) {
-                    if (etRoomCode.getText().toString().equals(String.valueOf(session.getRoomCode()))) {
-                        session.addUser(etUsername.getText().toString());
+                String roomCode = etRoomCode.getText().toString().trim();
+                String username = etUsername.getText().toString().trim();
+
+                if (!roomCode.isEmpty() && !username.isEmpty()) {
+                    if (roomCode.equals(String.valueOf(session.getRoomCode()))) {
+
+                        session.addUser(username);
+
 
                         Intent intent = new Intent(JoinRoomActivity.this, RoomSessionActivity.class);
                         startActivity(intent);

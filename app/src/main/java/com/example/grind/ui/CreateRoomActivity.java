@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +24,10 @@ public class CreateRoomActivity extends AppCompatActivity {
         VoteRoomSession session = VoteRoomSession.getInstance();
         int roomCode = generateRoomCode();
         EditText roomNameInput = findViewById(R.id.etRoomName);
+        TextView tvRoomCode = findViewById(R.id.tvRoomCode);
         Button createRoomButton = findViewById(R.id.btnCreate);
+
+        tvRoomCode.setText("Kod pokoju: " + roomCode);
 
         createRoomButton.setOnClickListener(new View.OnClickListener() {
             @Override

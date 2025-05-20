@@ -13,6 +13,8 @@ public class VoteRoomSession {
     private final List<VotingQuestion> votingQuestions = new ArrayList<>();
 
     private VoteRoomSession() {
+        users = new ArrayList<>();
+        votings = new ArrayList<>();
     }
 
     public static VoteRoomSession getInstance() {

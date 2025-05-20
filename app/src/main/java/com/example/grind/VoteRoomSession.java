@@ -1,45 +1,28 @@
 package com.example.grind;
 
-import com.example.grind.model.Voting;
+import com.example.grind.model.VotingQuestion;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VoteRoomSession {
-    private static VoteRoomSession instance;
+    private static final VoteRoomSession instance = new VoteRoomSession();
+
     private int roomCode;
     private String roomTitle;
-    private List<String> users;
-    private List<Voting> votings;
+    private final List<VotingQuestion> votingQuestions = new ArrayList<>();
 
     private VoteRoomSession() {
     }
 
     public static VoteRoomSession getInstance() {
-        if (instance == null) {
-            instance = new VoteRoomSession();
-        }
         return instance;
     }
 
     public void setRoom(int code, String title) {
         this.roomCode = code;
         this.roomTitle = title;
-    }
-
-    public void addUser(String user) {
-        users.add(user);
-    }
-
-    public void addVoting(Voting voting) {
-        votings.add(voting);
-    }
-
-    public List<String> getUsers() {
-        return users;
-    }
-
-    public List<Voting> getVotings() {
-        return votings;
+        votingQuestions.clear(); // Wyczyszczenie pytań przy tworzeniu nowego pokoju
     }
 
     public int getRoomCode() {
@@ -48,5 +31,13 @@ public class VoteRoomSession {
 
     public String getRoomTitle() {
         return roomTitle;
+    }
+
+    public void addQuestion(VotingQuestion question) {
+        votingQuestions.add(question);
+    }
+
+    public List<VotingQuestion> getQuestions() {
+        return votingQuestions;
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,8 +41,12 @@ public class RoomManagementActivity extends AppCompatActivity {
         });
 
         btnStartVoting.setOnClickListener(view -> {
-            Intent intent = new Intent(RoomManagementActivity.this, AddVotingActivity.class);
-            startActivity(intent);
+            if (!session.getVotings().isEmpty()) {
+                Intent intent = new Intent(RoomManagementActivity.this, ModeratorVotingActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Musisz dodać co najmniej 1 głosowanie", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

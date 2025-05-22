@@ -14,6 +14,7 @@
         <activity android:name=".ui.JoinRoomActivity" />
         <activity android:name=".ui.ModeratorLoginActivity" />
         <activity android:name=".ui.RoomSessionActivity"/>
+        <activity android:name=".ui.ModeratorVotingActivity"/>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

@@ -11,6 +11,7 @@ public class VoteRoomSession {
     private int roomCode;
     private String roomTitle;
     private final List<Voting> votings = new ArrayList<>();
+    private Voting currentVoting;
 
     // ✅ Dodane pole do przechowywania użytkowników
     private final List<String> users;
@@ -44,6 +45,14 @@ public class VoteRoomSession {
 
     public List<Voting> getVotings() {
         return votings;
+    }
+
+    public Voting getCurrentVoting() {
+        return currentVoting;
+    }
+
+    public void setCurrentVoting(Voting currentVoting) {
+        this.currentVoting = currentVoting;
     }
 
     // ✅ Nowe metody do zarządzania użytkownikami

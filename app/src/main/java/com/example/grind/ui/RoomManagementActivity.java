@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.grind.R;
 import com.example.grind.VoteRoomSession;
-import com.example.grind.model.VotingQuestion;
+import com.example.grind.model.Voting;
 
 public class RoomManagementActivity extends AppCompatActivity {
     @Override
@@ -23,18 +23,24 @@ public class RoomManagementActivity extends AppCompatActivity {
         TextView tvRoomCode = findViewById(R.id.tvRoomCode);
         TextView tvQuestions = findViewById(R.id.tvQuestions);
         Button btnAddQuestion = findViewById(R.id.btnAddQuestion);
+        Button btnStartVoting = findViewById(R.id.btnStartVoting);
 
         tvRoomName.setText("Pokój: " + session.getRoomTitle());
         tvRoomCode.setText("Kod: " + session.getRoomCode());
 
         StringBuilder builder = new StringBuilder();
-        for (VotingQuestion question : session.getQuestions()) {
-            builder.append("• ").append(question.getQuestion()).append("\n");
+        for (Voting voting : session.getVotings()) {
+            builder.append("• ").append(voting.getQuestion()).append("\n");
         }
         tvQuestions.setText(builder.toString());
 
         btnAddQuestion.setOnClickListener(view -> {
-            Intent intent = new Intent(RoomManagementActivity.this, AddQuestionActivity.class);
+            Intent intent = new Intent(RoomManagementActivity.this, AddVotingActivity.class);
+            startActivity(intent);
+        });
+
+        btnStartVoting.setOnClickListener(view -> {
+            Intent intent = new Intent(RoomManagementActivity.this, AddVotingActivity.class);
             startActivity(intent);
         });
     }

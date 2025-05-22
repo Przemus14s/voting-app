@@ -9,7 +9,7 @@
 
         <activity android:name=".ui.ResultsActivity" />
         <activity android:name=".ui.RoomManagementActivity" />
-        <activity android:name=".ui.AddQuestionActivity" />
+        <activity android:name=".ui.AddVotingActivity" />
         <activity android:name=".ui.CreateRoomActivity" />
         <activity android:name=".ui.JoinRoomActivity" />
         <activity android:name=".ui.ModeratorLoginActivity" />

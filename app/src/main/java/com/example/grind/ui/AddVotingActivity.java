@@ -10,16 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.grind.R;
 import com.example.grind.VoteRoomSession;
-import com.example.grind.model.VotingQuestion;
+import com.example.grind.model.Voting;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddQuestionActivity extends AppCompatActivity {
+public class AddVotingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_question_activity);
+        setContentView(R.layout.add_voting_activity);
 
         EditText etQuestion = findViewById(R.id.etQuestion);
         EditText etOption1 = findViewById(R.id.etOption1);
@@ -36,7 +36,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                 String option3 = etOption3.getText().toString().trim();
 
                 if (questionText.isEmpty() || option1.isEmpty() || option2.isEmpty()) {
-                    Toast.makeText(AddQuestionActivity.this, "Wprowadź pytanie i przynajmniej 2 opcje!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVotingActivity.this, "Wprowadź pytanie i przynajmniej 2 opcje!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -47,10 +47,10 @@ public class AddQuestionActivity extends AppCompatActivity {
                     options.add(option3);
                 }
 
-                VotingQuestion question = new VotingQuestion(questionText, options);
-                VoteRoomSession.getInstance().addQuestion(question);
+                Voting voting = new Voting(questionText, options);
+                VoteRoomSession.getInstance().addVoting(voting);
 
-                Toast.makeText(AddQuestionActivity.this, "Pytanie dodane!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddVotingActivity.this, "Pytanie dodane!", Toast.LENGTH_SHORT).show();
 
                 // Czyszczenie pól
                 etQuestion.setText("");

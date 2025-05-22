@@ -1,6 +1,6 @@
 package com.example.grind;
 
-import com.example.grind.model.VotingQuestion;
+import com.example.grind.model.Voting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public class VoteRoomSession {
 
     private int roomCode;
     private String roomTitle;
-    private final List<VotingQuestion> votingQuestions = new ArrayList<>();
+    private final List<Voting> votings = new ArrayList<>();
 
     // ✅ Dodane pole do przechowywania użytkowników
     private final List<String> users;
@@ -26,7 +26,7 @@ public class VoteRoomSession {
     public void setRoom(int code, String title) {
         this.roomCode = code;
         this.roomTitle = title;
-        votingQuestions.clear(); // Wyczyszczenie pytań przy tworzeniu nowego pokoju
+        votings.clear(); // Wyczyszczenie pytań przy tworzeniu nowego pokoju
         users.clear(); // Wyczyszczenie użytkowników przy tworzeniu nowego pokoju
     }
 
@@ -38,12 +38,12 @@ public class VoteRoomSession {
         return roomTitle;
     }
 
-    public void addQuestion(VotingQuestion question) {
-        votingQuestions.add(question);
+    public void addVoting(Voting voting) {
+        votings.add(voting);
     }
 
-    public List<VotingQuestion> getQuestions() {
-        return votingQuestions;
+    public List<Voting> getVotings() {
+        return votings;
     }
 
     // ✅ Nowe metody do zarządzania użytkownikami
